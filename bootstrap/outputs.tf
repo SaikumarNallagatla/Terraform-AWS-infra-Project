@@ -1,7 +1,17 @@
 output "backend_bucket_name" {
-  value = aws_s3_bucket.terraform_state.bucket
+  description = "Terraform backend bucket"
+
+  value = module.backend.backend_bucket_name
+}
+
+output "backend_bucket_arn" {
+  description = "Terraform backend bucket ARN"
+
+  value = module.backend.backend_bucket_arn
 }
 
 output "dynamodb_table_name" {
-  value = aws_dynamodb_table.terraform_lock.name
+  description = "Terraform lock table"
+
+  value = module.backend.dynamodb_table_name
 }
