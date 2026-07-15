@@ -51,3 +51,15 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: setup TFlint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: show terraform TFlint Version
+        run: tflint --version
+
+      - name: initize the tflint
+        run: tflint --init
+
+      - name: Run TFlint
+        run: tflint
