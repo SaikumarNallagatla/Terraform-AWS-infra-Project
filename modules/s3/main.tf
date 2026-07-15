@@ -47,16 +47,21 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
 
   rule {
 
-    id = "cleanup"
+  id = "cleanup"
 
-    status = "Enabled"
+  status = "Enabled"
 
-    filter {}
+  filter {}
 
-    expiration {
-      days = 365
-    }
-
+  expiration {
+    days = 365
   }
+
+  abort_incomplete_multipart_upload {
+    days_after_initiation = 7
+  }
+
+}
+
 }
 
