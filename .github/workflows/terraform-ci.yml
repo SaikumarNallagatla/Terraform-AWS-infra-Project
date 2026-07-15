@@ -59,7 +59,7 @@ jobs:
         run: tflint --version
 
       - name: initize the tflint
-        run: tflint --init
+        run: tflint --init --config=../../.tflint.hcl
 
       - name: Run TFlint
         run: tflint
