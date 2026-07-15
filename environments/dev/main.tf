@@ -6,5 +6,7 @@ module "website_bucket" {
 
   enable_versioning = true
 
+  enable_lifecycle_rule = true
+
   tags = local.common_tags
 }
