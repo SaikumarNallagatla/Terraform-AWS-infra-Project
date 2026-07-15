@@ -39,3 +39,29 @@ resource "aws_s3_bucket_public_access_block" "this" {
   restrict_public_buckets = true
 }
 
+resource "aws_s3_bucket_lifecycle_configuration" "this" {
+
+  count = var.enable_lifecycle_rule ? 1 : 0
+
+  bucket = aws_s3_bucket.this.id
+
+  rule {
+
+  id = "cleanup"
+
+  status = "Enabled"
+
+  filter {}
+
+  expiration {
+    days = 365
+  }
+
+  abort_incomplete_multipart_upload {
+    days_after_initiation = 7
+  }
+
+}
+
+}
+

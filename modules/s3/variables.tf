@@ -22,3 +22,9 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+variable "enable_lifecycle_rule" {
+  description = "Enable lifecycle configuration"
+  type        = bool
+  default     = false
+}
